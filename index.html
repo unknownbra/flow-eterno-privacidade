@@ -93,14 +93,21 @@ hr{border:none;border-top:1px solid #333;margin:2rem 0}
 </ul></section><section class="card"><h2>8. Niños</h2>
 <p>Juego casual para el público general, <strong>no dirigido a menores de 13 años</strong>. No recopilamos datos de niños directamente.</p></section><section class="card"><h2>9. Contacto</h2>
 <p>Dudas o solicitudes (acceso, corrección, eliminación del ranking): escribe al correo de soporte indicado en la página de la app en Google Play.</p></section><section class="card"><h2>10. Cambios</h2>
-<p>Publicaremos las actualizaciones en esta misma página.</p>
+<p>Publicaremos las actualizaciones en esta misma página.</p></section>
 <script>
 (function(){
 var links={pt:document.querySelector('[data-lang="pt"]'),en:document.querySelector('[data-lang="en"]'),es:document.querySelector('[data-lang="es"]')};
 function setActive(id){for(var k in links){if(links[k])links[k].classList.toggle('active',k===id);}}
-var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setActive(e.target.id);});},{rootMargin:'-45% 0px -50% 0px'});
-['pt','en','es'].forEach(function(id){var h=document.getElementById(id);if(h)obs.observe(h);});
+function cur(){var line=window.scrollY+window.innerHeight*0.3,id='pt';
+['pt','en','es'].forEach(function(i){var h=document.getElementById(i);
+if(h&&h.getBoundingClientRect().top<=window.innerHeight*0.3)id=i;});
+return id;}
+var tick=false;
+window.addEventListener('scroll',function(){if(tick)return;tick=true;
+requestAnimationFrame(function(){setActive(cur());tick=false;});},{passive:true});
+for(var k in links){(function(id){links[id].addEventListener('click',function(){setActive(id);});})(k);}
+setActive(cur());
 })();
 </script>
 </body>
-</html></section>
+</html>
