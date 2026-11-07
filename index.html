@@ -22,7 +22,7 @@
 </ul>
 <p>Ficam em banco local (Room/SharedPreferences) e são apagados se você desinstalar o app ou limpar os dados.</p>
 
-<h2>3. Dados no nosso servidor (<code>flow-eterno.opticaldraft.com</code>)</h2>
+<h2>3. Dados no servidor do ranking</h2>
 <ul>
 <li><strong>Níveis:</strong> o app baixa o manifesto, os tabuleiros e o desafio diário. Essas leituras não enviam dados pessoais;</li>
 <li><strong>Ranking:</strong> ao vencer um nível (só com premium ativo), enviamos <code>levelId, apelido, tempo, jogadas, data e identidade da compra</code>. O apelido fica visível no placar público do nível;</li>
@@ -60,7 +60,7 @@
 <p>Flow Eterno is an offline pair-connecting puzzle game. No accounts, no login. We collect no name, email, photos, location or contacts. The only data handled: what Google requires for ads and the "remove ads" purchase, the <strong>ranking nickname</strong> you type (premium only), and game progress stored <strong>on your device and our ranking server</strong>.</p>
 <h2>2. On-device data (local Room DB)</h2>
 <p>Level progress (completed, best time, moves, coverage), sound/vibration, theme; premium status, nickname and purchase hash; cached levels for offline play; queued records awaiting upload. Deleted on uninstall or data clear.</p>
-<h2>3. Our server (<code>flow-eterno.opticaldraft.com</code>)</h2>
+<h2>3. Ranking server data</h2>
 <p><strong>Levels:</strong> the app downloads the manifest, boards and daily challenge — no personal data sent. <strong>Ranking:</strong> on level win (premium only) we send <code>levelId, nickname, time, moves, date and purchase identity</code>; the nickname is publicly visible on the level leaderboard. <strong>Restore:</strong> reinstalls can recover nickname, progress and queue via purchase identity.</p>
 <h2>4. "Remove ads" purchase (Google Play Billing)</h2>
 <p>Processed by <strong>Google Play</strong> — we never see card data. We keep only premium status and a <strong>SHA-256 hash of the order ID</strong> as a stable ranking identity. Only premium users can set a ranking nickname.</p>
@@ -91,7 +91,7 @@
 <p>Flow Eterno es un juego de conectar pares de colores que funciona <strong>sin conexión</strong>, sin cuenta. Solo tratamos: lo que Google exige para anuncios y la compra «sin anuncios», el <strong>apodo del ranking</strong> que escribas (solo premium) y el progreso guardado <strong>en tu dispositivo y en nuestro servidor</strong>.</p>
 <h2>2. En tu dispositivo</h2>
 <p>Progreso de niveles, mejores tiempos, sonido/vibración, tema; estado premium, apodo y hash de compra; niveles en caché; récords en cola. Se borran al desinstalar.</p>
-<h2>3. Nuestro servidor (<code>flow-eterno.opticaldraft.com</code>)</h2>
+<h2>3. Datos en el servidor del ranking</h2>
 <p><strong>Niveles:</strong> descarga del manifiesto, tableros y desafío diario — sin datos personales. <strong>Ranking:</strong> al ganar (solo premium) enviamos <code>levelId, apodo, tiempo, movimientos, fecha e identidad de compra</code>; el apodo es público en el marcador. <strong>Restauración:</strong> reinstalaciones recuperan apodo y progreso con la identidad de compra.</p>
 <h2>4. Compra «sin anuncios» (Google Play Billing)</h2>
 <p>Procesada por <strong>Google Play</strong> — nunca vemos tu tarjeta. Solo guardamos el estado premium y un <strong>hash SHA-256 del pedido</strong>. Solo el premium puede fijar apodo.</p>
