@@ -98,15 +98,18 @@ hr{border:none;border-top:1px solid #333;margin:2rem 0}
 (function(){
 var links={pt:document.querySelector('[data-lang="pt"]'),en:document.querySelector('[data-lang="en"]'),es:document.querySelector('[data-lang="es"]')};
 function setActive(id){for(var k in links){if(links[k])links[k].classList.toggle('active',k===id);}}
-function cur(){var line=window.scrollY+window.innerHeight*0.3,id='pt';
+function tops(){var y=window.scrollY,o={};
 ['pt','en','es'].forEach(function(i){var h=document.getElementById(i);
-if(h&&h.getBoundingClientRect().top<=window.innerHeight*0.3)id=i;});
-return id;}
+o[i]=h?h.getBoundingClientRect().top+y:0;});return o;}
+function cur(){var t=tops(),line=window.scrollY+window.innerHeight*0.5;
+if(line>=t.es)return 'es';if(line>=t.en)return 'en';return 'pt';}
 var tick=false;
+function upd(){tick=false;setActive(cur());}
 window.addEventListener('scroll',function(){if(tick)return;tick=true;
-requestAnimationFrame(function(){setActive(cur());tick=false;});},{passive:true});
+requestAnimationFrame(upd);},{passive:true});
+window.addEventListener('resize',upd);
 for(var k in links){(function(id){links[id].addEventListener('click',function(){setActive(id);});})(k);}
-setActive(cur());
+upd();
 })();
 </script>
 </body>
